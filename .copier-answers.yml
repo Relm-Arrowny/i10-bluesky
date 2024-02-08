@@ -1,0 +1,14 @@
+# Changes here will be overwritten by Copier
+_commit: 1.0.2
+_src_path: gh:DiamondLightSource/python-copier-template
+author_email: raymond.fan@diamond.ac.uk
+author_name: Raymond Fan
+component_owner: user:wvx67826
+description: ''
+distribution_name: i10-bluesky
+docker: true
+docs_type: README
+git_platform: github.com
+github_org: Relm-Arrowny
+package_name: i10_bluesky
+repo_name: i10-bluesky
