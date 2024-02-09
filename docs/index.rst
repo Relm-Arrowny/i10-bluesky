@@ -14,13 +14,13 @@ The documentation is split into 2 sections:
         :link: user/index
         :link-type: doc
 
-        The User Guide contains documentation on how to install and use i22-bluesky.
+        The User Guide contains documentation on how to install and use i10-bluesky.
 
     .. grid-item-card:: :material-regular:`code;4em`
         :link: developer/index
         :link-type: doc
 
-        The Developer Guide contains documentation on how to develop and contribute changes back to i22-bluesky.
+        The Developer Guide contains documentation on how to develop and contribute changes back to i10-bluesky.
 
 .. toctree::
     :hidden:

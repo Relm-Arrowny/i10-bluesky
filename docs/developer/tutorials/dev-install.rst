@@ -10,7 +10,7 @@ Clone the repository
 First clone the repository locally using `Git
 <https://git-scm.com/downloads>`_::
 
-    $ git clone git://github.com/DiamondLightSource/i22-bluesky.git
+    $ git clone git@github.com:Relm-Arrowny/i10-bluesky.git
 
 Install dependencies
 --------------------
@@ -25,7 +25,7 @@ requires python 3.8 or later) or to run in a container under `VSCode
 
         .. code::
 
-            $ cd i22-bluesky
+            $ cd i10-bluesky
             $ python3 -m venv venv
             $ source venv/bin/activate
             $ pip install -e '.[dev]'
@@ -34,7 +34,7 @@ requires python 3.8 or later) or to run in a container under `VSCode
 
         .. code::
 
-            $ code i22-bluesky
+            $ code i10-bluesky
             # Click on 'Reopen in Container' when prompted
             # Open a new terminal
 

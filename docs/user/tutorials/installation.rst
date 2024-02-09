@@ -25,14 +25,14 @@ Installing the library
 
 You can now use ``pip`` to install the library and its dependencies::
 
-    $ python3 -m pip install i22-bluesky
+    $ python3 -m pip install i10-bluesky
 
 If you require a feature that is not currently released you can also install
 from github::
 
-    $ python3 -m pip install git+https://github.com/DiamondLightSource/i22-bluesky.git
+    $ python3 -m pip install git+https://github.com/Relm-Arrowny/i10-bluesky.git
 
 The library should now be installed and the commandline interface on your path.
 You can check the version that has been installed by typing::
 
-    $ i22-bluesky --version
+    $ i10-bluesky --version

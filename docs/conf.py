@@ -10,15 +10,15 @@ from subprocess import check_output
 
 import requests
 
-import i22_bluesky
+import i10_bluesky
 
 # -- General configuration ------------------------------------------------
 
 # General information about the project.
-project = "i22-bluesky"
+project = "i10-bluesky"
 
 # The full version, including alpha/beta/rc tags.
-release = i22_bluesky.__version__
+release = i10_bluesky.__version__
 
 # The short X.Y version.
 if "+" in release:
