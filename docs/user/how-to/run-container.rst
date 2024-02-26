@@ -1,9 +1,8 @@
 Run in a container
 ==================
 
-Pre-built containers with i22-bluesky and its dependencies already
+Pre-built containers with i10-bluesky and its dependencies already
 installed are available on `Github Container Registry
-<https://ghcr.io/DiamondLightSource/i22-bluesky>`_.
 
 Starting the container
 ----------------------
