@@ -40,7 +40,7 @@ requires python 3.8 or later) or to run in a container under `VSCode
 
         .. note::
 
-            See the epics-containers_ documentation for more complex
+            See the epics-containers documentation for more complex
             use cases, such as integration with podman.
 
 See what was installed
