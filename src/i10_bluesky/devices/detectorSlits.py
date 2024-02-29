@@ -1,16 +1,13 @@
-from ophyd import Component, Device, EpicsMotor, EpicsSignalRO
+from ophyd import Component, Device, EpicsMotor
 
 
 class DetectorSlits(Device):
     dsu = Component(EpicsMotor, "dsu")
     dsd = Component(EpicsMotor, "dsd")
-    
 
 
-#Try but async not yet suport fake_fake_device
 """
-
-
+#Try but async not yet suport fake_fake_device
 from ophyd_async.core import StandardReadable
 from ophyd_async.epics.signal.signal import epics_signal_r
 class slits(StandardReadable):
@@ -27,4 +24,3 @@ class slits(StandardReadable):
         super().__init__(name=name)
 
 """
-
