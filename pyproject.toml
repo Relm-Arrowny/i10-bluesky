@@ -30,7 +30,7 @@ dependencies = [
     "dls-dodal",
     "typing_extensions<4.6",
     "ophyd-async",
-    "numpy",
+    "setuptools",
 
 ] # Add project dependencies here, e.g. ["click", "numpy"]
 dynamic = ["version"]
