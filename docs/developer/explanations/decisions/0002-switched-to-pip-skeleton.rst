@@ -11,7 +11,7 @@ Accepted
 Context
 -------
 
-We should use the following `pip-skeleton`_.
+We should use the following `pip-skeleton <https://github.com/Relm-Arrowny/i10-bluesky>`_.
 The skeleton will ensure consistency in developer
 environments and package management.
 

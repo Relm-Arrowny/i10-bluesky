@@ -20,9 +20,6 @@
         }
     },
     // Set *default* container specific settings.json values on container create.
-    "settings": {
-        "python.defaultInterpreterPath": "/venv/bin/python"
-    },
     "customizations": {
         "vscode": {
             // Add the IDs of extensions you want installed when the container is created.
@@ -31,7 +28,10 @@
                 "tamasfe.even-better-toml",
                 "redhat.vscode-yaml",
                 "ryanluker.vscode-coverage-gutters"
-            ]
+            ],
+            "settings": {
+                "python.defaultInterpreterPath": "/venv/bin/python"
+            }
         }
     },
     // Make sure the files we are mapping into the container exist on the host
