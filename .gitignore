@@ -46,6 +46,7 @@ coverage.xml
 cov.xml
 .pytest_cache/
 .mypy_cache/
+tests/stubs/
 
 # Translations
 *.mo
@@ -69,3 +70,7 @@ lockfiles/
 
 # ruff cache
 .ruff_cache/
+
+
+#copyer stuff
+.copier-answers.yml

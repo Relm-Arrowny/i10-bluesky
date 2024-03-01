@@ -2,8 +2,8 @@ from ophyd import Component, Device, EpicsMotor
 
 
 class DetectorSlits(Device):
-    dsu = Component(EpicsMotor, "dsu")
-    dsd = Component(EpicsMotor, "dsd")
+    dsu = Component(EpicsMotor, "-01:TRANS")
+    dsd = Component(EpicsMotor, "-02:TRANS")
 
 
 """

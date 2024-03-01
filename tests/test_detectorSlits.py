@@ -1,7 +1,7 @@
 import pytest
 from ophyd.sim import make_fake_device
 
-from i10_bluesky.devices.detectorSlits import DetectorSlits
+from i10_bluesky.devices.rasor.detectorSlits import DetectorSlits
 
 
 @pytest.fixture
