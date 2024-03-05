@@ -14,10 +14,9 @@ classifiers = [
 description = ""
 dependencies = [
     "typing-extensions;python_version<'3.8'",
-    "bluesky",
-    "ophyd",
+
+    "pyqt5",
     #"nslsii",
-    "pyepics",
     #"aioca",
     #"pydantic<2.0",
     #"stomp.py",
@@ -30,8 +29,14 @@ dependencies = [
     #"dls-bluesky-core",      #requires ophyd-async
     #"dls-dodal",
     #"typing_extensions<4.6",
-    #"ophyd-async",
     "setuptools",
+    "networkx>=2.0",
+    "numpy",
+    "packaging",
+    "pint",
+    "event-model",
+    "p4p",
+    "pyyaml",
 ] # Add project dependencies here, e.g. ["click", "numpy"]
 dynamic = ["version"]
 #version = "0.0.1"         #need to make this non manual but dynamic version currently include local version seed and it not the statand for release. 
@@ -41,6 +46,8 @@ requires-python = ">=3.9"
 
 [project.optional-dependencies]
 dev = [
+    "bluesky",
+    "ophyd-async",
     "black",
     "mypy",
     "pipdeptree",
@@ -55,6 +62,31 @@ dev = [
     "tox-direct",
     "types-mock",
     "copier",
+    ##===============================
+
+    "ophyd_async[pva]",
+    "ophyd_async[ca]",
+    #"black",
+    "flake8",
+    "flake8-isort",
+    "Flake8-pyproject",
+    "h5py",
+    "inflection",
+    "ipython",
+    "ipywidgets",
+    "matplotlib",
+    "myst-parser",
+    "numpydoc",
+    "ophyd",
+    "pickleshare",
+    "pyepics>=3.4.2",
+    "pyside6",
+    "pytest-asyncio",
+    "pytest-faulthandler",
+    "pytest-rerunfailures",
+    "pytest-timeout",
+    "types-pyyaml",
+
 ]
 
 [project.scripts]
@@ -83,6 +115,8 @@ addopts = """
 filterwarnings = "error"
 # Doctest python code in docs, python code in src docstrings, test functions in tests
 testpaths = "docs src tests"
+
+asyncio_mode = "auto"
 
 [tool.coverage.run]
 data_file = "/tmp/i10_bluesky.coverage"
