@@ -2,7 +2,7 @@ Run in a container
 ==================
 
 Pre-built containers with i10-bluesky and its dependencies already
-installed are available on `Github Container Registry
+installed are available on
 
 Starting the container
 ----------------------
