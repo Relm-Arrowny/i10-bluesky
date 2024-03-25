@@ -70,6 +70,10 @@ dev = [
     "pytest-rerunfailures",
     "pytest-timeout",
     "types-pyyaml",
+    "jupyter",
+    "softioc",
+    "cothread",
+
 
 ]
 
