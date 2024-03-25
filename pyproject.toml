@@ -48,9 +48,8 @@ dev = [
     "sphinx-design",
     "tox-direct",
     "types-mock",
-    "copier",
-    "ophyd_async[pva]",
-    "ophyd_async[ca]",
+    #"ophyd_async[pva]",
+    #"ophyd_async[ca]",
     "flake8",
     "flake8-isort",
     "Flake8-pyproject",
@@ -73,7 +72,7 @@ dev = [
     "jupyter",
     "softioc",
     "cothread",
-    "dls-dodal",
+    "dls-dodal@git+https://github.com/DiamondLightSource/dodal.git",
 
 ]
 

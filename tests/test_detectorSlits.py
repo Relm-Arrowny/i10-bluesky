@@ -1,6 +1,7 @@
 import asyncio
 from unittest.mock import Mock, call
 
+import numpy as np
 import pytest
 from ophyd_async.core import (
     DeviceCollector,
@@ -21,7 +22,6 @@ async def simSlits():
         simSlits = DetectorSlits("BLxxI-MO-TABLE", "ds")
         # Signals connected here
 
-    aSlits = ["dsd", "dsu"] 
     assert simSlits.dsd.name == "ds-dsd"
 
     set_sim_value(simSlits.dsd.units, "mm")
@@ -30,10 +30,10 @@ async def simSlits():
 
     yield simSlits
 
-def fake_motor(start:float, end:float, step:float):
-    for newPosition in range(start,end,step):
-        yield newPosition
 
+def fake_motor(start: float, end: float, step: float):
+    for newPosition in np.arange(start, end, step):
+        yield newPosition
 
 
 async def test_motor_moving_well(simSlits: DetectorSlits) -> None:
