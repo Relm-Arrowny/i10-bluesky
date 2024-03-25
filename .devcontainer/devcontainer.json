@@ -25,12 +25,10 @@
             // Add the IDs of extensions you want installed when the container is created.
             "extensions": [
                 "ms-python.python",
-                "github.vscode-github-actions",
                 "tamasfe.even-better-toml",
                 "redhat.vscode-yaml",
                 "ryanluker.vscode-coverage-gutters",
-                "charliermarsh.ruff",
-                "ms-azuretools.vscode-docker"
+                "mms-python.mypy-type-checker"
             ],
             "settings": {
                 "python.defaultInterpreterPath": "/venv/bin/python"
