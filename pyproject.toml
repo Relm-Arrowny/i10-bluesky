@@ -73,7 +73,7 @@ dev = [
     "jupyter",
     "softioc",
     "cothread",
-
+    "dls-dodal",
 
 ]
 
