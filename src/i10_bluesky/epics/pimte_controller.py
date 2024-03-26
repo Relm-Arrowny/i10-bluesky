@@ -1,5 +1,5 @@
 import asyncio
-from typing import Optional, set
+from typing import Optional, Set
 
 from ophyd_async.core import AsyncStatus, DetectorControl, DetectorTrigger
 from ophyd_async.epics.areadetector.drivers.ad_base import (
