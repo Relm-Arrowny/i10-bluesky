@@ -8,7 +8,7 @@ from ophyd_async.epics.areadetector.drivers.ad_base import (
     start_acquiring_driver_and_ensure_status,
 )
 from ophyd_async.epics.areadetector.utils import ImageMode, stop_busy_record
-
+from ophyd_async.core import SignalRW
 from i10_bluesky.epics.drivers.pimte1_driver import Pimte1Driver, TriggerMode
 
 TRIGGER_MODE = {
@@ -36,11 +36,11 @@ class PimteController(DetectorControl):
     def set_temperature(self, temperature: float) -> None:
         self.driver.temperture.set(temperature)
         self._process_setting()
-
+    """
     def set_speed(self, speed: int) -> None:
         self.driver.speed.set(speed)
         self._process_setting()
-
+    """
     async def arm(
         self,
         num: int,

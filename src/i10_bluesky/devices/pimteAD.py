@@ -26,7 +26,7 @@ class HDFStatsPimte(StandardDetector):
         self.stats = NDPluginStats(prefix + "STAT:")
 
         super().__init__(
-            Pimte1Driver(self.drv),
+            PimteController(self.drv),
             HDFWriter(
                 self.hdf,
                 directory_provider,
