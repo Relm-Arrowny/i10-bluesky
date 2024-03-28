@@ -47,6 +47,7 @@ cov.xml
 .pytest_cache/
 .mypy_cache/
 .ipynb_checkpoints
+i10-pimte*
 
 # Translations
 *.mo

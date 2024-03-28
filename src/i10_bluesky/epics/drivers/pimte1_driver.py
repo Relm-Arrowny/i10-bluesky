@@ -5,8 +5,6 @@ from ophyd_async.epics.areadetector.utils import ad_r, ad_rw
 from ophyd_async.epics.signal import epics_signal_rw
 
 
-
-
 class Pimte1Driver(ADBase):
     def __init__(self, prefix: str) -> None:
         self.trigger_mode = ad_rw(Pimte1Driver.TriggerMode, prefix + "TriggerMode")

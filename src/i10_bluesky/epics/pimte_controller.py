@@ -26,6 +26,7 @@ class PimteController(DetectorControl):
     ) -> None:
         self.driver = driver
         self.good_states = good_states
+
     def get_deadtime(self, exposure: float) -> float:
         return 0.01
 
@@ -43,7 +44,7 @@ class PimteController(DetectorControl):
     async def arm(
         self,
         num: int = 1,
-        trigger: Pimte1Driver.TriggerMode = Pimte1Driver.TriggerMode.internal,
+        trigger: Pimte1Driver.TriggerMode = DetectorTrigger.internal,
         exposure: Optional[float] = None,
     ) -> AsyncStatus:
 
@@ -51,14 +52,15 @@ class PimteController(DetectorControl):
             exposure = await asyncio.gather(self.driver.acquire_time.get_value())
 
         await asyncio.gather(self.driver.trigger_mode.set(TRIGGER_MODE[trigger]))
-        #await asyncio.gather(self.driver.trigger_mode.set(trigger))
         self._process_setting()
+        # await asyncio.gather(self.driver.trigger_mode.set(trigger))
+
         await asyncio.gather(
             self.driver.acquire_time.set(exposure),
             self.driver.num_images.set(999_999 if num == 0 else num),
             self.driver.image_mode.set(ImageMode.multiple),
         )
-    
+
         return await start_acquiring_driver_and_ensure_status(
             self.driver, good_states=self.good_states
         )
