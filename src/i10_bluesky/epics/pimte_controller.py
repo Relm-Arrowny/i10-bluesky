@@ -1,5 +1,5 @@
 import asyncio
-from typing import Optional, Set
+from typing import Optional, Set  # , Set
 
 from ophyd_async.core import AsyncStatus, DetectorControl, DetectorTrigger
 from ophyd_async.epics.areadetector.drivers.ad_base import (
@@ -49,7 +49,8 @@ class PimteController(DetectorControl):
     ) -> AsyncStatus:
 
         if exposure is None:
-            exposure = await asyncio.gather(self.driver.acquire_time.get_value())
+            furture = await asyncio.gather(self.driver.acquire_time.get_value())
+            exposure = furture[0]
 
         await asyncio.gather(self.driver.trigger_mode.set(TRIGGER_MODE[trigger]))
         self._process_setting()
