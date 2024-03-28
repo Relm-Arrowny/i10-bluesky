@@ -9,12 +9,12 @@ from ophyd_async.epics.areadetector.drivers.ad_base import (
 )
 from ophyd_async.epics.areadetector.utils import ImageMode, stop_busy_record
 
-from i10_bluesky.epics.drivers.pimte1_driver import Pimte1Driver, SpeedMode, TriggerMode
+from i10_bluesky.epics.drivers.pimte1_driver import Pimte1Driver
 
 TRIGGER_MODE = {
-    DetectorTrigger.internal: TriggerMode.internal,
-    DetectorTrigger.constant_gate: TriggerMode.ext_trigger,
-    DetectorTrigger.variable_gate: TriggerMode.ext_trigger,
+    DetectorTrigger.internal: Pimte1Driver.TriggerMode.internal,
+    DetectorTrigger.constant_gate: Pimte1Driver.TriggerMode.ext_trigger,
+    DetectorTrigger.variable_gate: Pimte1Driver.TriggerMode.ext_trigger,
 }
 
 
@@ -26,35 +26,39 @@ class PimteController(DetectorControl):
     ) -> None:
         self.driver = driver
         self.good_states = good_states
+    def get_deadtime(self, exposure: float) -> float:
+        return 0.01
 
     def _process_setting(self) -> None:
         self.driver.initialize.set(1)
 
-    async def setTemperature(self, temperature: float) -> None:
-        await self.driver.setTemperture.set(temperature)
+    async def set_temperature(self, temperature: float) -> None:
+        await self.driver.set_temperture.set(temperature)
         self._process_setting()
 
-    async def setSpeed(self, speed: SpeedMode) -> None:
-        await self.driver.setTemperture.set(speed)
+    async def set_speed(self, speed: Pimte1Driver.SpeedMode) -> None:
+        await self.driver.speed.set(speed)
         self._process_setting()
 
     async def arm(
         self,
         num: int = 1,
+        trigger: Pimte1Driver.TriggerMode = Pimte1Driver.TriggerMode.internal,
         exposure: Optional[float] = None,
-        trigger: DetectorTrigger = DetectorTrigger.internal,
     ) -> AsyncStatus:
 
         if exposure is None:
-            exposure = await asyncio.create_task(self.driver.acquire_time.get_value())
+            exposure = await asyncio.gather(self.driver.acquire_time.get_value())
 
+        await asyncio.gather(self.driver.trigger_mode.set(TRIGGER_MODE[trigger]))
+        #await asyncio.gather(self.driver.trigger_mode.set(trigger))
+        self._process_setting()
         await asyncio.gather(
-            self.driver.trigger_mode.set(TRIGGER_MODE[trigger]),
             self.driver.acquire_time.set(exposure),
             self.driver.num_images.set(999_999 if num == 0 else num),
             self.driver.image_mode.set(ImageMode.multiple),
         )
-
+    
         return await start_acquiring_driver_and_ensure_status(
             self.driver, good_states=self.good_states
         )
