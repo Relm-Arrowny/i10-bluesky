@@ -30,38 +30,34 @@ class PimteController(DetectorControl):
     def get_deadtime(self, exposure: float) -> float:
         return 0.01
 
-    def _process_setting(self) -> None:
-        self.driver.initialize.set(1)
+    async def _process_setting(self) -> None:
+        await self.driver.initialize.set(1)
 
     async def set_temperature(self, temperature: float) -> None:
         await self.driver.set_temperture.set(temperature)
-        self._process_setting()
+        await self._process_setting()
 
     async def set_speed(self, speed: Pimte1Driver.SpeedMode) -> None:
         await self.driver.speed.set(speed)
-        self._process_setting()
+        await self._process_setting()
 
     async def arm(
         self,
         num: int = 1,
-        trigger: Pimte1Driver.TriggerMode = DetectorTrigger.internal,
+        trigger: DetectorTrigger = DetectorTrigger.internal,
         exposure: Optional[float] = None,
     ) -> AsyncStatus:
 
-        if exposure is None:
-            furture = await asyncio.gather(self.driver.acquire_time.get_value())
-            exposure = furture[0]
-
-        await asyncio.gather(self.driver.trigger_mode.set(TRIGGER_MODE[trigger]))
-        self._process_setting()
-        # await asyncio.gather(self.driver.trigger_mode.set(trigger))
-
-        await asyncio.gather(
-            self.driver.acquire_time.set(exposure),
+        funcs = [
             self.driver.num_images.set(999_999 if num == 0 else num),
             self.driver.image_mode.set(ImageMode.multiple),
-        )
+            self.driver.trigger_mode.set(TRIGGER_MODE[trigger]),
+        ]
+        if exposure is not None:
+            funcs.append(self.driver.acquire_time.set(exposure))
 
+        await asyncio.gather(*funcs)
+        await self._process_setting()
         return await start_acquiring_driver_and_ensure_status(
             self.driver, good_states=self.good_states
         )
