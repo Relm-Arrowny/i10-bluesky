@@ -28,7 +28,7 @@ class PimteController(DetectorControl):
         self.good_states = good_states
 
     def get_deadtime(self, exposure: float) -> float:
-        return 0.01
+        return exposure + 0.1
 
     async def _process_setting(self) -> None:
         await self.driver.initialize.set(1)
