@@ -1,3 +1,5 @@
+from bluesky import plan_stubs as bps
+from bluesky import preprocessors as bpp
 from bluesky.utils import Msg
 from ophyd_async.core import DetectorTrigger, StandardDetector, TriggerInfo
 
@@ -36,7 +38,12 @@ class AdPlan:
     def _getTriggerInfo(self) -> TriggerInfo:
         return TriggerInfo(self.n_img, self.trigger, self.deadtime, self.exposure)
 
-    def tiggerImg(det: StandardDetector, value: TriggerInfo):
-        yield Msg("stage", det)
-        yield Msg("prepare", det, value)
-        yield Msg("unstage", det)
+    def tiggerImg(dets: StandardDetector, value: int):
+        yield Msg("set", dets.drv.acquire_time, value)
+
+        @bpp.stage_decorator([dets])
+        @bpp.run_decorator()
+        def innerTiggerImg():
+            return (yield from bps.trigger_and_read([dets]))
+
+        return (yield from innerTiggerImg())

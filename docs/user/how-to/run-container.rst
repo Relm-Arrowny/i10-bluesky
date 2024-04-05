@@ -9,6 +9,6 @@ Starting the container
 
 To pull the container from github container registry and run::
 
-    $ docker run ghcr.io/DiamondLightSource/i22-bluesky:main --version
+    $ docker run ghcr.io/DiamondLightSource/i10-bluesky:main --version
 
 To get a released version, use a numbered release instead of ``main``.

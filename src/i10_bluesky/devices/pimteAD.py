@@ -45,7 +45,7 @@ class HDFStatsPimte(StandardDetector):
     async def trigger(self) -> None:
         """Arm the detector and wait for it to finish."""
         indices_written = await self.writer.get_indices_written()
-        written_status = await self.controller.arm(num=2)
+        written_status = await self.controller.arm(1)
         await written_status
         end_observation = indices_written + 1
 
