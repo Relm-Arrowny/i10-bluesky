@@ -41,12 +41,11 @@ class AdPlan:
         def innerTakeImg():
             yield from bps.declare_stream(self.det, name="primary")
             yield from bps.kickoff(self.det, group=grp, wait=True)
-            yield from bps.prepare(self.det, self._getTriggerInfo, group=grp, wait=True)
-            # yield from bps.complete(self.det, group = grp, wait = True)
-            yield from bps.wait(
-                group=grp
-            )  # wait within the bps plan seem to have no effect hence wait here
-            return (yield from bps.complete(self.det, group=grp, wait=True))
+            yield from bps.prepare(
+                self.det, self._getTriggerInfo(), group=grp, wait=True
+            )
+            yield from bps.complete(self.det, group=grp, wait=True)
+            return (yield from bps.wait(group=grp))
 
         return (yield from innerTakeImg())
 
