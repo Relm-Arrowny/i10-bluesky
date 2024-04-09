@@ -1,15 +1,11 @@
 from unittest.mock import patch
 
 import pytest
-
 from ophyd_async.core import DetectorTrigger, DeviceCollector
 from ophyd_async.epics.areadetector.controllers import (
     ADSimController,
 )
 from ophyd_async.epics.areadetector.drivers import ADBase
-from ophyd_async.epics.areadetector.drivers.pilatus_driver import (
-    TriggerMode as PilatusTrigger,
-)
 from ophyd_async.epics.areadetector.utils import ImageMode
 
 from i10_bluesky.epics.drivers.pimte1_driver import Pimte1Driver
