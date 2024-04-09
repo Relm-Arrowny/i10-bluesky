@@ -42,4 +42,4 @@ class HDFStatsPimte(StandardDetector):
 
     @property
     def hints(self) -> Hints:
-        return self.writer.hints
+        return self._writer.hints
