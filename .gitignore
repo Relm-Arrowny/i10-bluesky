@@ -46,6 +46,8 @@ coverage.xml
 cov.xml
 .pytest_cache/
 .mypy_cache/
+.ipynb_checkpoints
+i10-pimte*
 
 # Translations
 *.mo
@@ -69,3 +71,7 @@ lockfiles/
 
 # ruff cache
 .ruff_cache/
+
+
+#copyer stuff
+.copier-answers.yml

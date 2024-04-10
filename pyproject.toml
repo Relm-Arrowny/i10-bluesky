@@ -7,8 +7,6 @@ name = "i10-bluesky"
 classifiers = [
     "Development Status :: 3 - Alpha",
     "License :: OSI Approved :: Apache Software License",
-    "Programming Language :: Python :: 3.7",
-    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
@@ -16,14 +14,27 @@ classifiers = [
 description = ""
 dependencies = [
     "typing-extensions;python_version<'3.8'",
+
+    "pyqt5",
+    "setuptools",
+    "networkx>=2.0",
+    "numpy",
+    "packaging",
+    "pint",
+    "event-model",
+    "p4p",
+    "pyyaml",
 ] # Add project dependencies here, e.g. ["click", "numpy"]
 dynamic = ["version"]
+#version = "0.0.1"         #need to make this non manual but dynamic version currently include local version seed and it not the statand for release. 
 license.file = "LICENSE"
 readme = "README.rst"
-requires-python = ">=3.7"
+requires-python = ">=3.9"
 
 [project.optional-dependencies]
 dev = [
+    "bluesky",
+    "ophyd-async",
     "black",
     "mypy",
     "pipdeptree",
@@ -37,7 +48,32 @@ dev = [
     "sphinx-design",
     "tox-direct",
     "types-mock",
-    "copier",
+    #"ophyd_async[pva]",
+    #"ophyd_async[ca]",
+    "flake8",
+    "flake8-isort",
+    "Flake8-pyproject",
+    "h5py",
+    "inflection",
+    "ipython",
+    "ipywidgets",
+    "matplotlib",
+    "myst-parser",
+    "numpydoc",
+    "ophyd",
+    "pickleshare",
+    "pyepics>=3.4.2",
+    "pyside6",
+    "pytest-asyncio",
+    "pytest-faulthandler",
+    "pytest-rerunfailures",
+    "pytest-timeout",
+    "types-pyyaml",
+    "jupyter",
+    "softioc",
+    "cothread",
+    "dls-dodal@git+https://github.com/DiamondLightSource/dodal.git",
+
 ]
 
 [project.scripts]
@@ -66,6 +102,8 @@ addopts = """
 filterwarnings = "error"
 # Doctest python code in docs, python code in src docstrings, test functions in tests
 testpaths = "docs src tests"
+
+asyncio_mode = "auto"
 
 [tool.coverage.run]
 data_file = "/tmp/i10_bluesky.coverage"
@@ -102,7 +140,7 @@ commands =
 [tool.ruff]
 src = ["src", "tests"]
 line-length = 88
-select = [
+lint.select = [
     "C4",   # flake8-comprehensions - https://beta.ruff.rs/docs/rules/#flake8-comprehensions-c4
     "E",    # pycodestyle errors - https://beta.ruff.rs/docs/rules/#error-e
     "F",    # pyflakes rules - https://beta.ruff.rs/docs/rules/#pyflakes-f
