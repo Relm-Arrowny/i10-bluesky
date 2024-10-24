@@ -69,7 +69,7 @@ jobs:
         run: tox -e pytest
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           name: ${{ matrix.python }}/${{ matrix.os }}
           files: cov.xml
@@ -153,7 +153,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Build and export to Docker local cache
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           # Note build-args, context, file, and target must all match between this
           # step and the later build-push-action, otherwise the second build-push-action
@@ -188,7 +188,7 @@ jobs:
 
       - name: Push cached image to container registry
         if: github.ref_type == 'tag' # || github.ref_name == 'main'
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         # This does not build the image again, it will find the image in the
         # Docker cache and publish it
         with:
@@ -226,7 +226,7 @@ jobs:
       - name: Github Release
         # We pin to the SHA, not the tag, for security reasons.
         # https://docs.github.com/en/actions/learn-github-actions/security-hardening-for-github-actions#using-third-party-actions
-        uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # v0.1.15
+        uses: softprops/action-gh-release@c062e08bd532815e2082a85e87e3ef29c3e6d191 # v0.1.15
         with:
           prerelease: ${{ contains(github.ref_name, 'a') || contains(github.ref_name, 'b') || contains(github.ref_name, 'rc') }}
           files: |
