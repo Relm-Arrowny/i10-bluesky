@@ -1,27 +1,21 @@
 ---
-name: Bug report
-about: Create a report to help us improve
-title: ''
-labels: bug
+name: Bug Report
+about: The template to use for reporting bugs and usability issues
+title: " "
+labels: 'bug'
 assignees: ''
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+Describe the bug, including a clear and concise description of the expected behavior, the actual behavior and the context in which you encountered it (ideally include details of your environment).
 
-**To Reproduce**
+## Steps To Reproduce
 Steps to reproduce the behavior:
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'
 4. See error
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
-
-**Additional context**
-Add any other context about the problem here.
+## Acceptance Criteria
+- Specific criteria that will be used to judge if the issue is fixed
