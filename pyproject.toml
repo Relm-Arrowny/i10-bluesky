@@ -12,7 +12,22 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
 ]
 description = "i10 bluesky project"
-dependencies = [] # Add project dependencies here, e.g. ["click", "numpy"]
+dependencies = [
+    #Things that are neeeded for running
+    "blueapi",
+    "ophyd",
+    "dls-dodal",
+    "ophyd-async",
+    "bluesky",
+
+
+    #usefull stuff for testing or running without blue api
+    "jupyter",
+    "ipython",
+    "matplotlib",
+    "numpy",
+    "pyepics",
+] # Add project dependencies here, e.g. ["click", "numpy"]
 dynamic = ["version"]
 license.file = "LICENSE"
 readme = "README.md"
@@ -32,8 +47,27 @@ dev = [
     "sphinx-autobuild",
     "sphinx-copybutton",
     "sphinx-design",
+    "autodoc-pydantic",
+    "sphinxcontrib-mermaid",
+    "sphinxcontrib-openapi",
+    "sphinx-click",
     "tox-direct",
     "types-mock",
+    "pytest-asyncio",
+    "super_state_machine",
+    #===========================
+    "h5py",
+    "ipython",
+    "ipywidgets",
+    "numpydoc",
+    "pickleshare",
+    "pyside6",
+    "pytest-faulthandler",
+    "pytest-rerunfailures",
+    "pytest-timeout",
+    "types-pyyaml",
+    "softioc",
+    "cothread",
 ]
 
 [project.scripts]
@@ -52,7 +86,7 @@ version_file = "src/i10_bluesky/_version.py"
 
 [tool.pyright]
 typeCheckingMode = "standard"
-reportMissingImports = false # Ignore missing stubs in imported modules
+reportMissingImports = false  # Ignore missing stubs in imported modules
 
 [tool.pytest.ini_options]
 # Run pytest with all our checkers, and don't spam us with massive tracebacks on error

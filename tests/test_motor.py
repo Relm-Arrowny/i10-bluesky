@@ -1,5 +1,4 @@
 import asyncio
-from typing import Dict
 from unittest.mock import Mock, call
 
 import pytest
@@ -99,7 +98,7 @@ async def test_set_velocity(sim_motor: motor.Motor) -> None:
     assert (await v.describe())["sim_motor-velocity"][
         "source"
     ] == "sim://BLxxI-MO-TABLE-01:X.VELO"
-    q: asyncio.Queue[Dict[str, Reading]] = asyncio.Queue()
+    q: asyncio.Queue[dict[str, Reading]] = asyncio.Queue()
     v.subscribe(q.put_nowait)
     assert (await q.get())["sim_motor-velocity"]["value"] == 1.0
     await v.set(2.0)
