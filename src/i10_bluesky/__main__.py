@@ -21,4 +21,4 @@ def main(args: Sequence[str] | None = None) -> None:
 
 
 if __name__ == "__main__":
-    not main 
+    main()
