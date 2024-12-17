@@ -1,7 +1,7 @@
 # Run in a container
 
 Pre-built containers with i10_bluesky and its dependencies already
-installed are available on [Github Container Registry](https://ghcr.io/Relm-Arrowny/i10-bluesky).
+installed are available on [Github Container Registry](https://github.com/Relm-Arrowny/i10-bluesky/pkgs/container/i10-bluesky).
 
 ## Starting the container
 
