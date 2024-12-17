@@ -1,5 +1,5 @@
 [![CI](https://github.com/Relm-Arrowny//actions/workflows/ci.yml/badge.svg)](https://github.com/Relm-Arrowny//actions/workflows/ci.yml)
-[![Coverage](https://codecov.io/gh/Relm-Arrowny//branch/main/graph/badge.svg)](https://codecov.io/gh/Relm-Arrowny/i10_bluesky)
+[![Coverage](https://codecov.io/gh/Relm-Arrowny//branch/main/graph/badge.svg)](https://codecov.io/gh/Relm-Arrowny/i10-bluesky)
 [![PyPI](https://img.shields.io/pypi/v/i10_bluesky.svg)](https://pypi.org/project/i10_bluesky)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
