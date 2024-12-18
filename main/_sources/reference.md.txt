@@ -8,5 +8,5 @@ Technical reference material including APIs and release notes.
 
 API <_api/i10_bluesky>
 genindex
-Release Notes <https://github.com/Relm-Arrowny/i10_bluesky/releases>
+Release Notes <https://github.com/DiamondLightSource/i10_bluesky/releases>
 ```
