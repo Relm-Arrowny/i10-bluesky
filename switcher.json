@@ -24,6 +24,10 @@
     "url": "https://DiamondLightSource.github.io/i10-bluesky/dependabot_github_actions_actions-8f84fb483c/"
   },
   {
+    "version": "issue9",
+    "url": "https://DiamondLightSource.github.io/i10-bluesky/issue9/"
+  },
+  {
     "version": "update_dev_env",
     "url": "https://DiamondLightSource.github.io/i10-bluesky/update_dev_env/"
   }
