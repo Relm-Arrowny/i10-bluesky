@@ -1,5 +1,5 @@
-[![CI](https://github.com/Relm-Arrowny/i10-bluesky/actions/workflows/ci.yml/badge.svg)](https://github.com/Relm-Arrowny/i10-bluesky/actions/workflows/ci.yml)
-[![Coverage](https://codecov.io/gh/Relm-Arrowny/branch/main/graph/badge.svg)](https://codecov.io/gh/Relm-Arrowny/i10-bluesky)
+[![CI](https://github.com/DiamondLightSource/i10-bluesky/actions/workflows/ci.yml/badge.svg)](https://github.com/DiamondLightSource/i10-bluesky/actions/workflows/ci.yml)
+[![Coverage](https://codecov.io/gh/DiamondLightSource/branch/main/graph/badge.svg)](https://codecov.io/gh/DiamondLightSource/i10-bluesky)
 [![PyPI](https://img.shields.io/pypi/v/i10_bluesky.svg)](https://pypi.org/project/i10_bluesky)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
@@ -10,11 +10,11 @@ i10 bluesky project
 This is where you should write a short paragraph that describes what your module does,
 how it does it, and why people should use it.
 
-Source          | <https://github.com/Relm-Arrowny/i10-bluesky>
+Source          | <https://github.com/DiamondLightSource/i10-bluesky>
 :---:           | :---:
 PyPI            | `pip install i10_bluesky`
-Documentation   | <https://relm-arrowny.github.io/i10-bluesky>
-Releases        | <https://github.com/Relm-Arrowny/i10-bluesky/releases>
+Documentation   | <https://DiamondLightSource.github.io/i10-bluesky>
+Releases        | <https://github.com/DiamondLightSource/i10-bluesky/releases>
 
 This is where you should put some images or code snippets that illustrate
 some relevant examples. If it is a library then you might put some
@@ -34,4 +34,4 @@ python -m i10_bluesky --version
 
 <!-- README only content. Anything below this line won't be included in index.md -->
 
-See https://relm-arrowny.github.io/i10-bluesky for more detailed documentation.
+See https://DiamondLightSource.github.io/i10-bluesky for more detailed documentation.

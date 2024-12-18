@@ -74,7 +74,7 @@ dev = [
 i10_bluesky = "i10_bluesky.__main__:main"
 
 [project.urls]
-GitHub = "https://github.com/Relm-Arrowny/i10-bluesky"
+GitHub = "https://github.com/DiamondLightSource/i10-bluesky"
 
 [[project.authors]] # Further authors may be added by duplicating this section
 email = "raymond.fan@diamond.ac.uk"
