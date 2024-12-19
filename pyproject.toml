@@ -19,6 +19,7 @@ dependencies = [
     "dls-dodal",
     "ophyd-async",
     "bluesky",
+    "p99_bluesky",
 
 
     #usefull stuff for testing or running without blue api
