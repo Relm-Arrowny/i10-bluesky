@@ -1,3 +1,3 @@
-from .alignments import PeakPosition, find_peak_centre, scan_and_move
+from .alignments import PeakPosition, fast_scan_and_move_cen, scan_and_move_cen
 
-__all__ = ["find_peak_centre", "scan_and_move", "PeakPosition"]
+__all__ = ["fast_scan_and_move_cen", "scan_and_move_cen", "PeakPosition"]

@@ -15,22 +15,13 @@ class PeakPosition(int, Enum):
     CEN = 3
 
 
-def scan_and_move(
+def scan_and_move_cen(
     det: StandardReadable,
     motor: Motor,
     start: float,
     end: float,
     num: int,
     loc: PeakPosition = PeakPosition.CEN,
-) -> MsgGenerator:
-    ps = yield from find_peak_centre(
-        motor=motor, det=det, start=start, end=end, num=num
-    )
-    yield from abs_set(motor, ps["stats"][loc], wait=True)
-
-
-def find_peak_centre(
-    det: StandardReadable, motor: Motor, start: float, end: float, num: int
 ) -> MsgGenerator:
     ps = PeakStats(f"{motor.name}", f"{det.name}")
 
@@ -38,29 +29,16 @@ def find_peak_centre(
         scan([det], motor, start, end, num=num),
         ps,
     )
-    return ps
-
-
-def fast_scan_and_move(
-    det: StandardReadable,
-    motor: Motor,
-    start: float,
-    end: float,
-    num: int,
-    loc: PeakPosition = PeakPosition.CEN,
-) -> MsgGenerator:
-    ps = yield from find_peak_centre_fast(
-        motor=motor, det=det, start=start, end=end, num=num
-    )
     yield from abs_set(motor, ps["stats"][loc], wait=True)
 
 
-def find_peak_centre_fast(
+def fast_scan_and_move_cen(
     det: StandardReadable,
     motor: Motor,
     start: float,
     end: float,
     motor_speed: float | None = None,
+    loc: PeakPosition = PeakPosition.CEN,
 ) -> MsgGenerator:
     ps = PeakStats(f"{motor.name}", f"{det.name}")
 
@@ -70,4 +48,4 @@ def find_peak_centre_fast(
         ),
         ps,
     )
-    return ps
+    yield from abs_set(motor, ps["stats"][loc], wait=True)
