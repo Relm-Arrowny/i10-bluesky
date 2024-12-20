@@ -1,3 +1,4 @@
+from collections.abc import Callable
 from enum import Enum
 
 from bluesky import preprocessors as bpp
@@ -15,7 +16,25 @@ class PeakPosition(int, Enum):
     CEN = 3
 
 
-def scan_and_move_cen(
+def scan_and_move_cen(funcs) -> Callable:
+    def inner(**kwargs):
+        ps = PeakStats(
+            f"{kwargs['motor'].name}",
+            f"{kwargs['det'].name}",
+            calc_derivative_and_stats=True,
+        )
+
+        yield from bpp.subs_wrapper(
+            funcs(**kwargs),
+            ps,
+        )
+        yield from abs_set(kwargs["motor"], ps["stats"][kwargs["loc"]], wait=True)
+
+    return inner
+
+
+@scan_and_move_cen
+def step_scan_and_move_cen(
     det: StandardReadable,
     motor: Motor,
     start: float,
@@ -23,15 +42,10 @@ def scan_and_move_cen(
     num: int,
     loc: PeakPosition = PeakPosition.CEN,
 ) -> MsgGenerator:
-    ps = PeakStats(f"{motor.name}", f"{det.name}")
-
-    yield from bpp.subs_wrapper(
-        scan([det], motor, start, end, num=num),
-        ps,
-    )
-    yield from abs_set(motor, ps["stats"][loc], wait=True)
+    return scan([det], motor, start, end, num=num)
 
 
+@scan_and_move_cen
 def fast_scan_and_move_cen(
     det: StandardReadable,
     motor: Motor,
@@ -40,12 +54,4 @@ def fast_scan_and_move_cen(
     motor_speed: float | None = None,
     loc: PeakPosition = PeakPosition.CEN,
 ) -> MsgGenerator:
-    ps = PeakStats(f"{motor.name}", f"{det.name}")
-
-    yield from bpp.subs_wrapper(
-        fast_scan_1d(
-            dets=[det], motor=motor, start=start, end=end, motor_speed=motor_speed
-        ),
-        ps,
-    )
-    yield from abs_set(motor, ps["stats"][loc], wait=True)
+    return fast_scan_1d([det], motor, start, end, motor_speed=motor_speed)
